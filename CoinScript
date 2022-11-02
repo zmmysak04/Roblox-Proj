@@ -1,0 +1,12 @@
+local AmountToGive = 5
+local RespawnTime = 1
+
+script.Parent.Touched:Connect(function(hit)
+	if hit then
+		local player = game.Players:GetPlayerFromCharacter(hit.Parent)
+		player.leaderstats.Money.Value += AmountToGive
+		script.Parent.Parent = game.ReplicatedStorage
+		wait(RespawnTime)
+		script.Parent.Parent = workspace
+	end
+end)
